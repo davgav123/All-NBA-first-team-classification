@@ -1,0 +1,26 @@
+\begin{thebibliography}{1}
+
+\bibitem{odrt}
+Basketball-Reference.
+\newblock Calculating individual offensive and defensive ratings.
+\newblock On-line at:
+  \url{https://www.basketball-reference.com/about/ratings.html}.
+
+\bibitem{per}
+Basketball-Reference.
+\newblock Calculating per.
+\newblock On-line at:
+  \url{https://www.basketball-reference.com/about/per.html}.
+
+\bibitem{ws}
+Basketball-Reference.
+\newblock Nba win shares.
+\newblock On-line at: \url{https://www.basketball-reference.com/about/ws.html}.
+
+\bibitem{bpm}
+Basketball-Reference.
+\newblock About box plus/minus (bpm).
+\newblock On-line at:
+  \url{https://www.basketball-reference.com/about/bpm.html}.
+
+\end{thebibliography}

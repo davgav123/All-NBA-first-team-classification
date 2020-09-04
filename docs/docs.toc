@@ -1,0 +1,18 @@
+\babel@toc {serbian}{}
+\contentsline {section}{\numberline {1}Stats 101}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Tradicionalna statistika}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Napredna statistika}{4}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Problem}{5}{section.2}%
+\contentsline {section}{\numberline {3}Podaci}{6}{section.3}%
+\contentsline {section}{\numberline {4}Vizuelizacija podataka}{7}{section.4}%
+\contentsline {section}{\numberline {5}Atributi}{10}{section.5}%
+\contentsline {section}{\numberline {6}Modeli}{12}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Modeli sa svim atributima}{13}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Kombinacija podataka po utakmici i naprednih podataka}{13}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Kombinacija podataka po sto poseda i naprednih podataka}{14}{subsubsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.2}Modeli sa manjim brojem atributa}{15}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Kombinacija podataka po utakmici i naprednih podataka}{16}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Kombinacija podataka po sto poseda i naprednih podataka}{17}{subsubsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.3}Zašto modeli predviđaju ono što predviđaju}{18}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Zaključak}{19}{section.7}%
+\contentsline {section}{References}{21}{section.7}%
