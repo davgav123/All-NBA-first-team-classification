@@ -59,8 +59,6 @@ U ovoj glavi ćemo su upoznati sa raznim košarkaškim statističkim parametrima
 
 \begin{itemize}
 	\item \textbf{Pos} - Pozicija igrača. Tradicionalno, igrač može biti: Plejmejker \textbf{PG}, Bek šuter \textbf{SG}, Nisko krilo \textbf{SF}, visoko krilo ili krilni centar \textbf{PF} ili centar \textbf{C}. U današnjoj košarci, jedan igrač može da igra na više pozicija i često je jedan od: \textbf{Point} - plejmejker, \textbf{Combo guard} - može biti plejmejker ili bek šuter, \textbf{Wing} - bek šuter ili nisko krilo, \textbf{Forward} - nisko ili visoko krilo, \textbf{Big} - najčešće centar, ali može biti i visoko krilo.
-	\item \textbf{G} - Games. Number of games player played in during a season.
-	\item \textbf{GS} - Games started. Number of games player started. Cannot be greater than G.
     \item \textbf{G} - Broj utakmica u kojima je igrač igrao u toku sezone.
     \item \textbf{GS} - Broj utakmica u kojima je igrač bio u startnoj petorci.
     \item \textbf{MP} - Odigrani minuti.
@@ -122,9 +120,11 @@ U ovoj glavi ćemo su upoznati sa raznim košarkaškim statističkim parametrima
 
 	Na kraju svake sezone u NBA ligi se bira prva petorka, odnosno 5 najboljih
 igrača sa svoje pozicije. U taj tim ulaze dva beka, dva krila i jedan centar. U
-ovom radu će biti obradena tema klasifikacije centara iz NBA lige, gde će biti
+ovom radu će biti obrađena tema klasifikacije centara iz NBA lige, gde će biti
 posmatrano da li igrač, u odnosu na njegovu statistiku iz sezone, pripada prvoj
-petorci NBA lige. Napomenimo da se najbolji centar lige ne bira u odnosu na
+petorci NBA lige.
+
+Napomenimo da se najbolji centar lige ne bira u odnosu na
 statistiku, već o tome odlučuju određeni novinari koji imaju pravo glasa. To znači da, pored statistike, oni mogu uzeti u obzir i druge stvari poput projekcija
 pre početka sezone, kvaliteta igrača koji igraju u istom timu sa tim igračem ili da li je taj igrač prva opcija u istom, razne povrede koje su zadesile tim igrača u toku sezone i tako dalje. Tačnije, ne moraju uzeti nijednu od tih stvari u obzir, već mogu da svoj glas dodele nekom nasumičnom igraču. U ovom radu će se uzimati u obzir samo statistika, što pravi potencijalni problem, iz tog razloga što neki igrač može biti statistički bolji od nekog drugog igrača, ali da zbog drugih kriterijumima ne bude član najbolje petorke.
 
@@ -138,9 +138,9 @@ su igrali na poziciji centra, ali i neki od igrača koji su igrali na poziciji v
 Statistika igrača nad kojom će biti pravljeni modeli obuhvata statistiku na nivou sezone za svakog igrača i u nju spadaju sezone od 1979-80 do 2018-19, takozvana Three point era, odnosno period u kome postoji šut za tri poena.
 
 Podaci obuhvataju statistiku po utakmici kao i naprednu statistuku, za koju
-očekujemo da će nam dati više informacija o tome koliko je igrač zapravo dobar (ili loš). Međutim, ovde nastaje jedan problem, a to je da ne igraju svi igrači isto minuta u proseku i oni koji igraju više imaju priliku da postignu više poena ili da uhvate više skokova. Zbog toga je uvedena i statistika koja meri učinak igrača po minutu, ili tačnije po 36 ili po 48 minuta. Tu nastaje novi problem, zbog toga što nisu svi minuti jednaki u tom smislu da je moguće da u jednom minutu ima nekoliko napada više nego u nekom drugom. Takođe, neki timovi mogu igrati brže od nekih drugih. Zbog toga, nećemo posmatrati statistiku po minutu, već statistiku po posedu. Tačnije, po 100 poseda zbog toga što je prirodnije reći 80 poena po 100 poseda nego 0.8 poena po posedu. Napomenimo da postoji podatak koji se zove \textit{Pace} i koji predstavlja broj napada po 48 minuta.
+očekujemo da će nam dati više informacija o tome koliko je igrač zapravo dobar (ili loš). Međutim, ovde nastaje jedan problem, a to je da ne igraju svi igrači isto minuta u proseku i oni koji igraju više imaju priliku da postignu više poena ili da uhvate više skokova. Zbog toga je uvedena i statistika koja meri učinak igrača po minutu, ili tačnije po 36 ili po 48 minuta. Tu nastaje novi problem, zbog toga što nisu svi minuti jednaki u tom smislu da je moguće da u jednom minutu ima nekoliko napada više nego u nekom drugom. Takođe, neki timovi mogu igrati brže od nekih drugih. Zbog toga, nećemo posmatrati statistiku po minutu, već statistiku po posedu. Tačnije, po 100 poseda zbog toga što je prirodnije reći 80 poena po 100 poseda nego 0.8 poena po posedu. Napomenimo da postoji podatak koji se zove \textit{Pace} koji predstavlja broj napada po 48 minuta.
 
-Ovo donosi još jedan benefit a to je bolje skaliranje podataka koji pripadaju različitim sezonama. Jednostavno, prosečan broj napada po utakmici na nivou sezone je podložan promenama zbog, na primer, uvođenja nekih novih pravila ili menjanja načina na koji timovi igraju. Slika \ref{plt:pace_season} nam prikazuje prosečan broj napada po utakmici za svaku od sezona od 1973-74. Vidimo da manji broj napada uzrokuje manje poena, skokova i asistencija što ima smisla. Dakle, igrači koji su igrali tokom 80ih godina su imali priliku da imaju veće vrednosti statistika od igrača koji su igrali tokom 2000ih. Statistika po posedu nam ovde vrednosti stavlja na istu skalu.
+Ovo donosi još jedan benefit a to je bolje skaliranje podataka koji pripadaju različitim sezonama. Jednostavno, prosečan broj napada po utakmici na nivou sezone je podložan promenama zbog, na primer, uvođenja nekih novih pravila ili menjanja načina na koji timovi igraju. Slika \ref{plt:pace_season} nam prikazuje prosečan broj napada po utakmici za svaku od sezona od 1973-74. Vidimo da manji broj napada uzrokuje manje poena, skokova i asistencija što ima smisla. Dakle, igrači koji su igrali tokom 80ih godina su imali priliku da imaju veće vrednosti statistika od igrača koji su igrali tokom 2000ih. Statistika po posedu nam ove vrednosti stavlja na istu skalu.
 
 \begin{figure}[h!]
 \begin{center}
@@ -150,14 +150,14 @@ Ovo donosi još jedan benefit a to je bolje skaliranje podataka koji pripadaju r
 \label{plt:pace_season}
 \end{figure}
 
-Modeli će biti trenirani na dva različita skupa podataka, jedan sadrži podatke po utakmici kao i naprednu statistiku, dok drugi, pored napredne statistike sadrži i statistiu po sto poseda. Kao što je već napomenuto, podaci sadrže ukupno 40 sezona. Ukupan broj instanci je 8295 (filtriranjem će se taj broj znatno smanjiti) dok je broj igrača koji su bili centar u najboljoj petorci lige četrdeset. Dakle, govorimo o problemu binarne klasifikacije na nebalansiranom skupu podataka.
+Modeli će biti trenirani na dva različita skupa podataka, jedan sadrži podatke po utakmici kao i naprednu statistiku, dok drugi, pored napredne statistike sadrži i statistiku po sto poseda. Kao što je već napomenuto, podaci sadrže ukupno 40 sezona. Ukupan broj instanci je 8295 (filtriranjem će se taj broj znatno smanjiti) dok je broj igrača koji su bili centar u najboljoj petorci lige četrdeset. Dakle, govorimo o problemu binarne klasifikacije na nebalansiranom skupu podataka.
 
 \section{Vizuelizacija podataka}
 \label{sec:vizuelizacija}
 
 U ovoj sekciji će na grafički način biti prikazana razlika među igračima koji
 su bili u prvoj petorci NBA lige, i onih koji to nisu bili. Vizuelizacija će biti
-prikazana na sva tri pomenuta skupa podataka (po utakmici, po sto poseda i napredni podaci). Prikazom raspodela proverićemo da li je razlika između igrača primetna kao i to da li postoji razlika između podataka po utakmici i po posedu. Pre nego što se grafici prikažu, napomenimo da je uradeno filtriranje podataka. Izbačeni su svi igrači koji su u jednoj sezoni imali manje od 40 odigranih utakmica (od 82) ili igrači koji su odigrali manje od 25 minuta po utakmici (od 48). Razlog za to će biti objašnjen u sledećoj sekciji. Na slici \ref{plt:dist_plot_pts} je prikazana raspodela po poenima po utakmici i po sto poseda, dok se na slici \ref{plt:dist_plot_per} vidi raspodela za PER statistiku.
+prikazana na sva tri pomenuta skupa podataka (po utakmici, po sto poseda i napredni podaci). Prikazom raspodela proverićemo da li je razlika između igrača primetna kao i to da li postoji razlika između podataka po utakmici i po posedu. Pre nego što se grafici prikažu, napomenimo da je urađeno filtriranje podataka. Izbačeni su svi igrači koji su u jednoj sezoni imali manje od 40 odigranih utakmica (od 82) i igrači koji su odigrali manje od 25 minuta po utakmici (od 48). Razlog za to će biti objašnjen u sledećoj sekciji. Na slici \ref{plt:dist_plot_pts} je prikazana raspodela po poenima po utakmici i po sto poseda, dok se na slici \ref{plt:dist_plot_per} vidi raspodela za PER statistiku.
 
 \begin{figure}[h!]
 \begin{center}
@@ -212,7 +212,7 @@ podatke prikazujemo na druge načine. Na slikama \ref{plt:swarm_plot_pts}, \ref{
 \end{figure}
 
 Odavde možemo zaključiti da razlika među klasama definitivno postoji, ali
-postoje igrači koji nisu bili u prvoj petorci a imaju sličnu ili čak bolju statistiku od igrača koji jesu. Sličan odnos se dobija i za ostale atribute. Ovo znači da je moguće da modeli imaju poteškoće da pravilno klasifikuju podatke. 
+postoje igrači koji nisu bili u prvoj petorci a imaju sličnu ili čak bolju statistiku od igrača koji jesu. Sličan odnos se dobija i za ostale atribute. Ovo znači da je moguće da će modeli imati poteškoće da pravilno klasifikuju podatke. 
 
 Posmatrajmo još i sledeće dve slike (broj \ref{plt:box_plot_pts} i \ref{plt:box_plot_ws}). One nam daju istu informaciju kao i grafici iznad, da razlika postoji u proseku ali da postoje igrači koji nisu bili u najboljoj petorci a da su to statistički zaslužili.
 
@@ -244,12 +244,12 @@ Prvo izbacujemo one atribute za koje ne želimo da imaju uticaj na klasifikaciju
 
 Nakon toga proveravamo koji atributi imaju NaN vrednosti. To su GS (koji se nije
 merio početkom 80ih godina), kao i razne šuterske statistike poput FG\%, 2P\%,
-3P\% i FT\%. Izbacujemo svih pet atributa iz podataka. Napomenimo da nam informacije o uspešnosti šutiranja ostaju u podacima zbog toga što postoje FG i FGA atributi.
+3P\% i FT\%. Izbacujemo svih pet atributa iz podataka. Napomenimo da nam informacije o uspešnosti šutiranja ostaju u podacima zbog toga što postoje FG i FGA atributi (i njihovi ekvivalenti za ostale vrste šuteva).
 
 Jedan od implicitnih uslova koji moraju biti ispunjeni da bi igrač bio startni
 centar je igranje određenog broja utakmica u sezoni, kao i određenog broja
 minuta po utakmici. To je tako zbog toga što se za najboljeg centra lige uvek
-bira veoma dobar igrač, a takav igrač je naravno bitan za svoju ekipu i zbog toga igra dosta utakmica, kao i dosta minuta po utakmici. Zbog toga poredimo prosečni broj utakmica kao i broj minuta po utakmici startnog centra i ostalih (tabela \ref{tab:g_mp}).
+bira veoma dobar igrač, a takav igrač je naravno bitan za svoju ekipu i zbog toga igra dosta utakmica, kao i dosta minuta po utakmici. Zbog toga poredimo prosečan broj utakmica kao i broj minuta po utakmici startnog centra i ostalih (tabela \ref{tab:g_mp}).
 
 \begin{table}[!h]
 \begin{center}
@@ -350,7 +350,7 @@ Pre treniranja, delimo podatke na trening i test skupove. Izabrano je da je
 veličina test skupa 0.33 veličine podataka, dok trening skup čini ostatak. Pri
 podeli uzeta je u obzir raspodela klasa (stratifikacija). Rezultat je da trening skup ima 27 instanci centara prvog tima i 1394 instance ostalih, dok test skup ima redom 13 i 687 primeraka. Nakon podele na trening i test, podaci su standardizovani korišćenjem sklearn biblioteke.
 
-Da bismo smanjili preprilagodavanje, kreirano je nekoliko modela sa različitim parametrima korišćenjem GridSearchCV metoda. Veličina skupa za validaciju je 10 dok je metrika koja se maksimizuje \textbf{odziv} iz tog razloga što nam je cilj da ispravno pogodimo instance pozitivne klase.
+Da bismo smanjili preprilagođavanje, kreirano je nekoliko modela sa različitim parametrima korišćenjem GridSearchCV metoda. Veličina skupa za validaciju je 10 dok je metrika koja se maksimizuje \textbf{odziv} iz tog razloga što nam je cilj da ispravno pogodimo instance pozitivne klase.
 
 GridSearch je pokrenut nad različitim skupovima podataka, na skupu bez
 balansiranja klasa (odnos klasa na trening skupu je 1394 prema 27), na skupu
@@ -367,7 +367,7 @@ nastavku će detaljnije biti prikazano samo nekoliko najboljih od njih. Za evalu
 \subsection{Modeli sa svim atributima}
 \label{subsec:svi_atributi}
 
-Kako imamo dve različite vrste podataka, podelićemo ovu sekciju na dva dela. Napomenimo još jednom da je svaki model takav da maksimizuje odziv i smanjuje preprilagodavanje što je više moguće.
+Kako imamo dve različite vrste podataka, podelićemo ovu sekciju na dva dela. Napomenimo još jednom da je svaki model takav da maksimizuje odziv i smanjuje preprilagođavanje što je više moguće.
 
 \subsubsection{Kombinacija podataka po utakmici i naprednih podataka}
 \label{subsubsec:kombo_pg_adv}
@@ -379,7 +379,7 @@ odziv za pozitivnu klasu na test skupu 0.38, preciznost 0.42, dok mu površina
 ispod ROC krive iznosi 0.69.
 
 Nakon ovoga, promenjen je skup za trening na takav način da je broj instanci
-veće klase smanjen (undersampling) i ovaj pristup je doveo do modela koji imaju dobre rezultate (tabela \ref{tab:undersampling_pg}). Prikazane metrike, preciznost, odziv i f1 skor se odnose na pozitivnu klasu, ne na prosek modela.
+veće klase smanjen (undersampling) i ovaj pristup je doveo do modela koji imaju dobre rezultate (tabela \ref{tab:undersampling_pg}). Prikazane metrike, preciznost, odziv i f1 skor se odnose na pozitivnu klasu, a ne na prosek modela.
 
 \begin{table}[!h]
 \begin{center}
@@ -394,7 +394,7 @@ gbc & 0.24 & 0.92 & 0.39 & 0.93 & 0.26 \\ \hline
 \end{center}
 \end{table}
 
-Vidimo da sva tri modela imaju visok odziv, kao i visoku vrednosti za površinu ispod ROC krive. Preciznost za sva tri modela je niska, što može predstavljati problem. Napomenimo i to da su modeli upoređeni sa nasumičnim klasifikatorom (Dummy) i da imaju znatno bolje rezultate od njega.
+Vidimo da sva tri modela imaju visok odziv, kao i visoku vrednosti za površinu ispod ROC krive. Preciznost za sva tri modela je niska, što može predstavljati potencijalni problem. Napomenimo i to da su modeli upoređeni sa nasumičnim klasifikatorom (Dummy) i da imaju znatno bolje rezultate od njega.
 
 Modeli kreirani nad trening skupom kome je dodato još primeraka manje
 klase na nasumičan način nemaju dobre rezultate. Štaviše, dobijeni rezultati
