@@ -1,5 +1,5 @@
 \babel@toc {serbian}{}
-\contentsline {section}{\numberline {1}Stats 101}{3}{section.1}%
+\contentsline {section}{\numberline {1}Statistika 101}{3}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Tradicionalna statistika}{3}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Napredna statistika}{4}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Problem}{5}{section.2}%

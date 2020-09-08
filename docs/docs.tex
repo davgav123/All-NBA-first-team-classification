@@ -17,13 +17,6 @@
 \usepackage{listings}
 \usepackage{setspace}
 
-\lstdefinelanguage{Print}{
-	numbers=none,
-	tabsize=4,
-	basicstyle=\small\ttfamily,
-	frame=none	
-}
-
 \usepackage{indentfirst}
 \usepackage[unicode]{hyperref}
 \hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
@@ -36,7 +29,7 @@
 
 \begin{document}
 
-\title{Klasifikacija All-NBA centara}
+\title{Klasifikacija centara najbolje petorke NBA lige}
 \author{David Gavrilović}
 % \date{...}
 \maketitle
@@ -49,10 +42,10 @@
 
 \newpage
 
-\section{Stats 101}
+\section{Statistika 101}
 \label{sec:stats_101}
 
-U ovoj glavi ćemo su upoznati sa raznim košarkaškim statističkim parametrima. Postoje dve grupe, tradicionalna i napredna statistika.
+U ovoj glavi ćemo su upoznati sa raznim košarkaškim statističkim statistikama. Postoje dve grupe, tradicionalna i napredna statistika.
 
 \subsection{Tradicionalna statistika}
 \label{subsec:trad_stat}
@@ -90,7 +83,7 @@ U ovoj glavi ćemo su upoznati sa raznim košarkaškim statističkim parametrima
 \label{subsec:napr_stat}
 
 \begin{itemize}
-	\item \textbf{Pace} - Pace. Broj poseda po 48 minuta.
+	\item \textbf{Pace} - Pace. Broj poseda jednog tima po 48 minuta.
 	\item \textbf{ORtg} - Offensive rating. Procena koliko jedan tim postiže poena po 100 poseda \cite{odrt}. Više vrednosti su bolje.
 	\item \textbf{DRtg} - Defensive rating. Procena koliko tim prima poena po 100 poseda \cite{odrt}. Niže vrednosti su bolje.
 	\item \textbf{PER} - Player efficiency rating. \cite{per}
@@ -118,7 +111,7 @@ U ovoj glavi ćemo su upoznati sa raznim košarkaškim statističkim parametrima
 \section{Problem}
 \label{sec:problem}
 
-	Na kraju svake sezone u NBA ligi se bira prva petorka, odnosno 5 najboljih
+Na kraju svake sezone u NBA ligi se bira prva petorka, odnosno 5 najboljih
 igrača sa svoje pozicije. U taj tim ulaze dva beka, dva krila i jedan centar. U
 ovom radu će biti obrađena tema klasifikacije centara iz NBA lige, gde će biti
 posmatrano da li igrač, u odnosu na njegovu statistiku iz sezone, pripada prvoj
@@ -128,7 +121,7 @@ Napomenimo da se najbolji centar lige ne bira u odnosu na
 statistiku, već o tome odlučuju određeni novinari koji imaju pravo glasa. To znači da, pored statistike, oni mogu uzeti u obzir i druge stvari poput projekcija
 pre početka sezone, kvaliteta igrača koji igraju u istom timu sa tim igračem ili da li je taj igrač prva opcija u istom, razne povrede koje su zadesile tim igrača u toku sezone i tako dalje. Tačnije, ne moraju uzeti nijednu od tih stvari u obzir, već mogu da svoj glas dodele nekom nasumičnom igraču. U ovom radu će se uzimati u obzir samo statistika, što pravi potencijalni problem, iz tog razloga što neki igrač može biti statistički bolji od nekog drugog igrača, ali da zbog drugih kriterijumima ne bude član najbolje petorke.
 
-	Prvi problem na koji se nailazi je kriterijum za biranje centra koji postavlja
+Prvi problem na koji se nailazi je kriterijum za biranje centra koji postavlja
 NBA liga. Moguće je da liga dozvoli da se za najboljeg centra biraju igrači koji
 su igrali na poziciji centra, ali i neki od igrača koji su igrali na poziciji visokog krila (ne svi, već samo određeni). Tu nastaje problem, zato što onda igrači koji su igrali poziciju PF mogu biti birani i kao centri i kao krila u najboljoj petorci. Da bi ipak svi potencijalni centri bili obuhvaćeni, podaci će sadržati statistiku za sve igrače koji su igrali na poziciji centra (oznaka C) ili krilnog centra (oznaka PF).
 
@@ -284,8 +277,7 @@ Proverom korelacije atributa sa ciljnom promenljivom zaključujemo da ne
 postoji nijedan atribut koji je visoko korelisan sa ciljnom promenljivom. Najviši
 koeficijent korelacije imaju napredne statistike poput VORP, BPM i WS. Pored
 njih visok stepen korelacije imaju i BLK, FG i FTA. Postoje i atributi koji
-imaju veoma nizak koeficijent korelacije (između -0.1 i 0.1) ali oni neće biti
-odstaranjeni zbog toga što nećemo koristiti linearne modele.
+imaju veoma nizak koeficijent korelacije (između -0.1 i 0.1), poput 3PA i 3P, ali njih nećemo odstraniti.
 
 U podacima koji su kombinacija napredne statistike i statistike po utakmici
 primećujemo da su visoko korelisani sledeći atributi (koeficijent iznosi preko 0.85): TS\% i eFG\%, USG\% i FGA i PTS, TRB i TRB\%, DRB i DRB\%, ORB i ORB\%, AST i AST\%, BLK i BLK\%, WS i WS/48 i OWS, BPM i OBPM i VORP. Slične vrednosti korelacija se dobijaju i za drugu vrstu podataka, kombinaciju po sto poseda i napredne
