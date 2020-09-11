@@ -368,7 +368,7 @@ Dakle, zbog nebalansiranosti podataka isprobano je nekoliko strategija. Prva
 je bila da se skup za trening ne menja. Ovaj pristup nije doveo do baš dobrih
 rezultata. Najbolje rezultate od svih modela na ovom skupu ima SVM kome je
 odziv za pozitivnu klasu na test skupu 0.38, preciznost 0.42, dok mu površina
-ispod ROC krive iznosi 0.69.
+ispod ROC krive iznosi 0.69. Primetimo da je svaki model veoma preprilagođen trening podacima.
 
 Nakon ovoga, promenjen je skup za trening na takav način da je broj instanci
 veće klase smanjen (undersampling) i ovaj pristup je doveo do modela koji imaju dobre rezultate (tabela \ref{tab:undersampling_pg}). Prikazane metrike, preciznost, odziv i f1 skor se odnose na pozitivnu klasu, a ne na prosek modela.
@@ -392,7 +392,7 @@ Modeli kreirani nad trening skupom kome je dodato još primeraka manje
 klase na nasumičan način nemaju dobre rezultate. Štaviše, dobijeni rezultati
 su veoma slični rezultatima modela na kojima nije izvršeno balansiranje klasa,
 osim za SVM model koji je bolji i koji za pozitivnu klasu ima preciznost 0.41,
-odziv 0.69, f1 skor 0.51 dok mu je površina ispod ROC krive 0.84.
+odziv 0.69, f1 skor 0.51 dok mu je površina ispod ROC krive 0.84. I kod ovih modela je preprilagođenost veoma izražena.
 
 Poslednja metoda je SMOTE uz pomoć koje je izjednačen broj instanci za obe klase na
 trening skupu. Dobijeni rezultati se mogu pronaći u tabeli \ref{tab:smote_pg}. Kao i u prethodnoj tabeli, preciznost, odziv i f1 skor važe samo za pozitivnu klasu.
@@ -414,7 +414,7 @@ Lako primećujemo da GBC model ne daje dobre rezultate, dok su rezultati
 za druga dva zadovoljavajući, iako je preciznost niska. Sva tri modela imaju
 bolji rezultat od nasumičnog klasifikatora.
 
-Sada ćemo proveriti kako modeli klasifikuju igrače iz sezone 2019-20. Izabrana su četiri igrača za koje se smatra da su glavni kandidati za najboljeg centra lige. To su Anthony Davis, Joel Embiid, Rudy Gobert i Nikola Jokić. Pogledajmo sledeću tabelu (slika \ref{plt:clf_pg}). Za svakog igrača je prikazana verovatnoća da postane najbolji centar za odabranih pet modela. Ti modeli su sva tri modela trenirana na skupu u kome je broj instanci veće klase smanjen kao i dva bolja modela trenirana na skupu dobijenom SMOTE metodom, SVM i RFC. Pored tih rezultata, prikazan je i njihov prosek.
+Sada ćemo proveriti kako modeli klasifikuju igrače iz sezone 2019-20. Izabrana su četiri igrača za koje se smatra da su glavni kandidati za najboljeg centra lige. To su Anthony Davis, Joel Embiid, Rudy Gobert i Nikola Jokić. Pogledajmo sledeću tabelu (slika \ref{plt:clf_pg}). Za svakog igrača je prikazana verovatnoća da postane najbolji centar za odabranih pet modela. Ti modeli su sva tri modela trenirana na skupu u kome je broj instanci veće klase smanjen kao i dva bolja modela trenirana na skupu dobijenom SMOTE metodom, SVM i RFC. Pomenuti modeli imaju najbolje rezultate na test skupu i najmanje se preprilagođavaju podacima za trening. Pored tih rezultata, prikazan je i njihov prosek.
 
 \begin{figure}[h!]
 \begin{center}
@@ -458,7 +458,7 @@ Rezultati modela nad podacima na kojima je broj instanci manje klase uvećan su 
 
 Modeli trenirani nad podacima dobijenim SMOTE metodom su lošiji od onih koji su trenirani nad podacima koji sadrže statistiku po utakmici. Najbolji od njih je RFC kome je odziv za pozitivnu klasu 0.69, preciznost 0.39 a f1 skor 0.50. Površina ispod ROC krive je 0.84 dok je log loss 0.07. Ostala dva modela imaju znatno lošije rezultate.
 
-Sada ćemo, kao i u prethodnoj sekciji izabrati najbolje modele i prikazati njihove rezultate za ista četiri igrača iz sezone 2019-20 (slika \ref{plt:clf_pp}).
+Sada ćemo, kao i u prethodnoj sekciji izabrati najbolje modele i prikazati njihove rezultate za ista četiri igrača iz sezone 2019-20 (slika \ref{plt:clf_pp}). Najbolji modeli su takvi da im je preprilagođavanje najmanje izraženo i imaju bolje rezultate na test skupu od ostalih.
 
 \begin{figure}[h!]
 \begin{center}
@@ -481,7 +481,7 @@ Time su dobijena dva nova skupa podataka manjih dimenzija. Dimenzije kombinacije
 \subsubsection{Kombinacija podataka po utakmici i naprednih podataka}
 \label{subsubsec:kombo_pg_adv_simple}
 
-Kao i kod modela sa više atributa, rezultati modela treniranih nad nebalansiranim podacima nisu zadovoljavajući. Najbolje se pokazao SVM model, dok ostala dva imaju znatno lošije rezultate.
+Kao i kod modela sa više atributa, rezultati modela treniranih nad nebalansiranim podacima nisu zadovoljavajući i preprilagođenost je veoma izražena. Najbolje se pokazao SVM model, dok ostala dva imaju znatno lošije rezultate.
 
 Modeli nastali nad podacima kojima je broj instanci veće klase smanjen imaju, ponovo, kao i kod podataka sa svim atributima, veoma dobre rezultate odziva na test skupu (tabela \ref{tab:undersampling_pg_simple}), iako im preciznost nije visoka. Odziv, preciznost i f1 skor su prikazani za pozitivnu klasu.
 
@@ -505,7 +505,7 @@ velika.
 
 Kod podataka sa svim atributima, modeli nisu dali zadovoljavajuće rezultate
 na test skupu kada se uveća broj instanci manje klase. Ovde to nije slučaj za
-svaki model. Pogledajmo tabelu \ref{tab:oversampling_pg_simple}.
+svaki model. Napomenimo i da kod ovih modela postoji velika preprilagođenost. Pogledajmo tabelu \ref{tab:oversampling_pg_simple}.
 
 \begin{table}[!h]
 \begin{center}
@@ -550,7 +550,7 @@ Proverimo sada verovatnoće da igrač bude član najbolje petorke najboljih mode
 \subsubsection{Kombinacija podataka po sto poseda i naprednih podataka}
 \label{subsubsec:kombo_pp_adv_simple}
 
-Za sam kraj, videćemo kako se ponašaju modeli nad skupom podataka u kome se nalaze statistike po sto poseda ali sa manje atributa. Ovi modeli prate skoro isti princip kao i ostali, gde rezultati nad podacima bez balansiranja nisu zadovoljavajući. Isto se može reći i za modele trenirane nad podacima gde je manja klasa uvećana. Modeli gde je smanjen broj instanci veće klase su dobri i prikazani su u tabeli \ref{tab:undersampling_pp_simple}. Kod modela treniranih nad podacima koji su balansirani SMOTE metodom najbolji je RFC dok su ostala dva lošija.
+Za sam kraj, videćemo kako se ponašaju modeli nad skupom podataka u kome se nalaze statistike po sto poseda ali sa manje atributa. Ovi modeli prate skoro isti princip kao i ostali, gde rezultati nad podacima bez balansiranja nisu zadovoljavajući. Isto se može reći i za modele trenirane nad podacima gde je manja klasa uvećana. U oba slučaja postoji preprilagođavanje podacima za trening. Modeli gde je smanjen broj instanci veće klase su dobri i prikazani su u tabeli \ref{tab:undersampling_pp_simple}. Kod modela treniranih nad podacima koji su balansirani SMOTE metodom najbolji je RFC dok su ostala dva lošija.
 
 \begin{table}[!h]
 \begin{center}
@@ -620,6 +620,10 @@ Primećujemo da modeli najviše cene napredne statistike, kao i šutiranje na ko
 \label{sec:zakljucak}
 
 Isproban je veliki broj modela nad različitim skupovima podataka. Dobijeni rezultati su interesantini ali ne uzimaju u obzir sve kriterijume za proglašenje nekoga najboljim centrom lige, pošto je te kriterijume gotovo nemoguće definisati, već samo statistiku. Prema ovim modelima, centar koji će biti član najbolje petorke NBA lige za sezonu 2019-20 je Entoni Dejvis, dok pored njega nekoliko modela daje visoku verovatnoću i Goberu. Prema modelima, Jokić i Embiid nemaju velike šanse.
+
+Postoji dosta prostora za dobijanje boljih modela od postojećih. Najveći problem koji postoji je preprilagođavanje koje je prisutno kad svakog modela, samo je kod nekih manje izraženo.
+
+Poboljšanje je moguće dobiti dodavanjem novih podataka, kao na primer poziciju tima igrača na kraju sezone kao i broj (ili odnos) pobeda i poraza u sezoni. Ta dva parametra mogu biti od značaja zbog toga što dobri igrači (oni koji su kandidati za najboljeg centra) obično igraju u dobrim timovima.
 
 \pagebreak
 

@@ -14,5 +14,5 @@
 \contentsline {subsubsection}{\numberline {6.2.1}Kombinacija podataka po utakmici i naprednih podataka}{16}{subsubsection.6.2.1}%
 \contentsline {subsubsection}{\numberline {6.2.2}Kombinacija podataka po sto poseda i naprednih podataka}{17}{subsubsection.6.2.2}%
 \contentsline {subsection}{\numberline {6.3}Zašto modeli predviđaju ono što predviđaju}{18}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Zaključak}{19}{section.7}%
+\contentsline {section}{\numberline {7}Zaključak}{20}{section.7}%
 \contentsline {section}{References}{21}{section.7}%
